@@ -5,8 +5,7 @@
     font-weight: normal;
     font-style: normal;
 }
-span.icon::before,
-span.icon::after{
+span.icon::before, span.icon::after{
     font-family: FontAwesome, serif;
     content:'';
     font-size: 1em;
