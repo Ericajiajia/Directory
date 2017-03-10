@@ -116,7 +116,6 @@ div.highlight-bar{
     background-color: #4975F4;
     -webkit-transition: all 0.1s;
     -moz-transition: all 0.1s;
-    -ms-transition: all 0.1s;
     -o-transition: all 0.1s;
     transition: all 0.1s;
 }
@@ -156,7 +155,6 @@ div.contextMenu{
     opacity: 0;
     -webkit-transition: opacity 0.3s;
     -moz-transition: opacity 0.3s;
-    -ms-transition: opacity 0.3s;
     -o-transition: opacity 0.3s;
     transition: opacity 0.3s;
 }
@@ -206,7 +204,6 @@ div.controllers div.wrapper>ul:focus{
     opacity: 1;
     -webkit-transition: opacity 0.3s;
     -moz-transition: opacity 0.3s;
-    -ms-transition: opacity 0.3s;
     -o-transition: opacity 0.3s;
     transition: opacity 0.3s;
 }

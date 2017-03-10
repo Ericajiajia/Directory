@@ -302,7 +302,6 @@ function initEventListener(){//初始化各种事件
             li = tempUl.parentNode;
             console.log(li.parentNode);
             while(tempUl.querySelectorAll("li").length === 0){
-                console.log(li);
                 tempUl = li.parentNode;
                 tempUl.removeChild(li);
                 li = tempUl.parentNode;
@@ -343,6 +342,5 @@ window.onload = function(){
     //两个示例文件夹的初始化命令
     root.querySelector("ul").appendChild(newNode("foobar",[]));
     initEventListener();
-    positionEle.click();
     positionEle.parentNode.querySelector("button").click();
 };
