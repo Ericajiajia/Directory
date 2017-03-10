@@ -53,6 +53,7 @@ function itemOnClick(event){//文件夹说对应的元素的点击事件
             q("div.files-list>div").classList.add("empty");
         }
     }
+    countFile();
 }
 function treeContextMenu(event){//弹出菜单的拦截事件
     if (document.all)
@@ -100,6 +101,7 @@ function newNode(title,childList){//新建文件夹
     li.appendChild(span);
     li.appendChild(ul);
     li.dataset.date = Date.now();
+    countFile();
     return(li);
 }
 function newFile(title){//新建文件
@@ -109,6 +111,7 @@ function newFile(title){//新建文件
     span.innerHTML = title;
     li.appendChild(span);
     li.dataset.date = Date.now();
+    countFile();
     return(li);
 }
 function left2NewItem(leftLi){
@@ -118,11 +121,11 @@ function left2NewItem(leftLi){
     var divTitle = document.createElement("DIV");
     var span = document.createElement("SPAN");
     var divDate = document.createElement("DIV");
-    li.classList.add("folder");
     divTitle.classList.add("title");
     divTitle.style.display = "block";
     span.classList.add("icon");
     if(leftLi.classList.contains("node")){
+        li.classList.add("folder");
         span.classList.add("icon-folder-blue");
         li.addEventListener("click",function(event){
             q("textarea").classList.remove("show");
@@ -133,6 +136,7 @@ function left2NewItem(leftLi){
             li_.querySelector("span").click();
         });
     }else{
+        li.classList.add("file");
         if(!values.hasOwnProperty(leftLi.dataset.date)){
             values[leftLi.dataset.date] = "";
         }
@@ -167,8 +171,8 @@ function left2NewItem(leftLi){
     divTitle.style.display = "block";
     li.appendChild(divTitle);
     li.appendChild(divDate);
+    countFile();
     return li;
-
 }
 function initRoot(){//初始化root文件夹
     var div = document.createElement("DIV");
@@ -191,6 +195,11 @@ function initRoot(){//初始化root文件夹
     div.appendChild(span);
     div.appendChild(ul);
     return(div);
+}
+function countFile(){
+    var num = qAll("div.left2 li.file").length;
+    console.log(num);
+    q("span.file-counter").innerHTML ="当前目录的文件数: " + num;
 }
 function initEventListener(){//初始化各种事件
     //为input设置事件
@@ -254,6 +263,7 @@ function initEventListener(){//初始化各种事件
         var ul = positionEle.parentNode.querySelector("ul");
         ul.appendChild(file);
         positionEle.click();
+        countFile();
     });
     //重命名功能
     q("#rename-folder").addEventListener("click",function(){
@@ -329,6 +339,7 @@ function initEventListener(){//初始化各种事件
     });
     q("#new-md-right").addEventListener("click",function(){
         q("#new-md").click();
+        countFile();
     });
     q("textarea").addEventListener("blur",function(){
         values[fileInEdit] = q("textarea").value;
