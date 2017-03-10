@@ -299,7 +299,6 @@ function initEventListener(){//初始化各种事件
             var tempUl = li.parentNode;
             tempUl.removeChild(li);
             li = tempUl.parentNode;
-            console.log(li.parentNode);
             while(tempUl.querySelectorAll("li").length === 0){
                 tempUl = li.parentNode;
                 tempUl.removeChild(li);
