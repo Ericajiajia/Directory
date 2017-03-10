@@ -12,7 +12,7 @@ var positionEle;//当前选中的目录所对应的元素
 var eleInEdit;//在编辑中的目录所对应的元素
 var rightEle;//右键弹出菜单时对应的元素
 var rightEle2;//右键弹出菜单时对应的元素
-var eleInEdit2;//右键弹出菜单时对应的元素
+var eleInEdit2;//在编辑中的目录所对应的元素
 var values = {};
 var fileInEdit;
 function treeButtonOnClick(event){//打开或关闭文件夹的方法
