@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="static/css/main.css">
+  <link rel="stylesheet" href="static/css/icons.css">
+  <script src="static/js/main.js" type="application/javascript"></script>
+  <title>Directory</title>
+</head>
+<body>
+<header>
+  <h1>有道云笔记</h1>
+</header>
+<div class="main">
+  <div class="left1">
+    <div class="controllers">
+      <div class="new">
+        <div class="wrapper">
+          <span class="icon icon-plus icon-pull-down">新建</span>
+          <ul tabindex="1" class="hidden">
+            <li class="menu-li">
+              <span id="new-folder">新建文件夹</span>
+            </li>
+            <li class="menu-li">
+              <span id="new-md">Markdown</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="upload">
+        <div class="wrapper">
+          <span class="icon icon-upload icon-pull-down">上传</span>
+          <ul tabindex="2"  class="hidden">
+            <li class="menu-li">
+                <span>上传1</span>
+            </li>
+            <li class="menu-li">
+                <span>上传2</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="highlight-bar"></div>
+    <div class="contextMenu" tabindex="0">
+      <ul>
+        <li class="menu-li">
+            <span id="rename-folder">重命名</span>
+        </li>
+        <li class="menu-li">
+            <span id="delete-folder">删除</span>
+        </li>
+        <li class="menu-li">
+            <span id="delete-folder-ex">删除2</span>
+        </li>
+      </ul>
+    </div>
+    <input placeholder="" value="未命名" id="rename-input"/>
+  </div>
+  <div class="left2">
+      <div class="files-panel"></div>
+      <div class="files-list">
+          <ul class="files-list-ul">
+          </ul>
+          <div class="empty-folder empty">
+              <div class="tip">没有找到文件</div>
+              <div class="button-wrapper">
+                  <button id="new-md-right">新建Markdown</button>
+              </div>
+          </div>
+      </div>
+      <div class="files-status"></div>
+      <input placeholder="" id="rename-input-2"/>
+      <div class="contextMenu-right" tabindex="0">
+          <ul>
+              <li class="menu-li">
+                  <span id="rename-folder-2">重命名</span>
+              </li>
+              <li class="menu-li">
+                  <span id="delete-folder-2">删除</span>
+              </li>
+          </ul>
+      </div>
+  </div>
+  <div class="right">
+      <div class="back">
+          <span class="icon icon-folder-blue"></span>
+      </div>
+      <textarea placeholder="在此输入"></textarea>
+  </div>
+</div>
+</body>
+</html>

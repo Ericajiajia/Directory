@@ -1,0 +1,409 @@
+
+body,html{
+    margin:0;
+    padding:0;
+    height:100%;
+    min-width: 1024px;
+}
+button{
+    border:0;
+}
+*{
+    outline: none;
+}
+ul{
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+header{
+    width:100%;
+    background-color:#4A76F4;
+    height:50px;
+    box-shadow: inset 0 0 20px 5px rgba(0,0,0,0.1);
+}
+header>h1{
+    height:40px;
+    font-size: 18px;
+    color: #FFF;
+    margin:0;
+    padding:5px 10px;
+    vertical-align: top;
+    display: inline-block;
+    line-height: 40px;
+}
+div.main{
+    display: block;
+    width:100%;
+    height:calc(100% - 50px);
+    background-color: #BBBBBB;
+    font-size: 0;
+    line-height: 0;
+}
+div.main>div{
+    font-size: 16px;
+    border-right: 1px solid #BBBBBB;
+    box-sizing: border-box;
+}
+div.main>div.left1{
+    height:100%;
+    width:250px;
+    line-height:100%;
+    display: inline-block;
+    background-color: #EEEEEE;
+    overflow: auto;
+    position: relative;
+}
+div.main>div.left2{
+    height:100%;
+    width:250px;
+    line-height:100%;
+    display: inline-block;
+    background-color: #DDDDDD;
+}
+div.main>div.right{
+    height:100%;
+    width:calc(100% - 500px);
+    line-height:100%;
+    display: inline-block;
+    background-color: #FFFFFF;
+}
+
+/*左1*/
+div#tree{
+    position: relative;
+    width:100%;
+    height:calc(100% - 50px);
+    overflow: auto;
+}
+div#tree,div#tree li{
+    padding: 0 0 0 1em;
+    box-sizing: border-box;
+    min-width: 10em;
+}
+div#tree ul{
+}
+div#tree span{
+    display: inline-block;
+    height:1.5em;
+    line-height: 1.5em;
+    border:0;
+    border-radius: 2px;
+    background-color: transparent;
+    cursor: pointer;
+    /*min-width: 8em;*/
+}
+
+div#tree button{
+    border:none;
+    background-color: transparent;
+}
+div#tree button::before{
+    display: inline-block;
+    height:1.5em;
+    margin:0;
+    border:0;
+    line-height: 1.5em;
+    width:1em;
+    vertical-align:text-bottom;
+
+}
+div.highlight-bar{
+    width:100%;
+    display: block;
+    position: absolute;
+    height:1.5em;
+    background-color: #4975F4;
+    -webkit-transition: all 0.1s;
+    -moz-transition: all 0.1s;
+    -ms-transition: all 0.1s;
+    -o-transition: all 0.1s;
+    transition: all 0.1s;
+}
+div.left1 .file{
+    display: none;
+}
+div.left1 .node.empty>button{
+    visibility: hidden;
+}
+div.left1 .node.empty>button::before{
+    vertical-align:text-bottom;
+    content: '';
+}
+div.left1 .node.closed>button::before{
+    vertical-align:text-bottom;
+    content: '+';
+}
+div.left1 .node.open>button::before {
+    vertical-align: text-bottom;
+    content: '-';
+}
+
+div.left1 .node.open>ul.container{
+    display: block;
+}
+div.left1 .node.closed>ul.container{
+    display: none;
+}
+div.contextMenu{
+    height:0;
+    overflow:hidden;
+    width:150px;
+    position: fixed;
+    background-color: #FFFFFF;
+    z-index: 9999;
+    outline: none;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;
+    -ms-transition: opacity 0.3s;
+    -o-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+div.contextMenu:focus{
+    opacity: 1;
+    height:auto;
+    overflow:visible;
+    box-shadow: 0 0 10px 4px rgba(0,0,0,0.1);
+}
+div.contextMenu span{
+    display: block;
+    padding:0.5em 1.5em;
+    background-color: #FFFFFF;
+    font-size: 12px;
+}
+div.controllers{
+    text-align: center;
+    height: 50px;
+    font-size: 0;
+    border-bottom: 1px #BBBBBB solid;
+    box-sizing: border-box;
+}
+div.controllers>div{
+    display: inline-block;
+    font-size: 16px;
+    width:50%;
+    height:100%;
+    padding:15px 0;
+    box-sizing: border-box;
+}
+div.controllers div.wrapper>ul{
+    margin-top: 0.3em;
+    display: block;
+    position: absolute;
+    height:0;
+    overflow: hidden;
+    left:0;
+    z-index: 99999;
+    background-color: #FFFFFF;
+    width:100px;
+    opacity: 0;
+}
+div.controllers div.wrapper>ul:focus{
+    box-shadow: 0 0 10px 4px rgba(0,0,0,0.1);
+    height:auto;
+    overflow: visible;
+    opacity: 1;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;
+    -ms-transition: opacity 0.3s;
+    -o-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+div.controllers div.wrapper>span{
+    display: inline-block;
+    font-size: 1em;
+    text-align: left;
+}
+div.controllers div.wrapper{
+    font-size: 14px;
+    width:5.5em;
+    margin:0 auto;
+    position: relative;
+    text-align: left;
+}
+div.controllers div.wrapper>ul>li>span{
+    display: block;
+    padding:0.5em 1.5em;
+    background-color: #FFFFFF;
+    font-size: 12px;
+}
+li.menu-li>span{
+    cursor: pointer;
+}
+#rename-input{
+    position: fixed;
+    display: none;
+    width:6em;
+    height:1.5em;
+    z-index: 999;
+}
+/*左2*/
+div.left2{
+    vertical-align: top;
+}
+div.left2>div.files-panel{
+    height:50px;
+    border-bottom: 1px solid #BBBBBB;
+    box-sizing: border-box;
+}
+div.left2>div.files-list{
+    height:calc(100% - 80px);
+    border-bottom: 1px solid #BBBBBB;
+    box-sizing: border-box;
+    position: relative;
+}
+div.left2>div.files-status{
+    height:30px;
+}
+div.left2>div.files-list>ul>li span{
+    cursor: pointer;
+}
+div.left2>div.files-list>ul>li:hover{
+    background-color: rgba(100,100,255,0.2);
+}
+div.left2>div.files-list>ul>li{
+    background-color: rgba(100,100,255,0.1);
+    font-size: 14px;
+    height:6em;
+    display: block;
+    padding:1em;
+    box-sizing: border-box;
+    position: relative;
+    border-bottom: solid 1px #BBBBBB;
+}
+div.left2>div.files-list>ul>li.folder:hover span.icon-folder-blue{
+    text-decoration: underline;
+}
+ul.files-list-ul>li>div.title{
+    height:2em;
+    line-height: 2em;
+    position: relative;
+}
+ul.files-list-ul>li>div.date{
+    height:2em;
+    line-height: 2em;
+    font-size: 12px;
+    color: #999999;
+}
+ul.files-list-ul>li:hover div.buttons{
+    display: inline-block;
+}
+ul.files-list-ul>li:hover span.icon-delete{
+    display: block;
+}
+ul.files-list-ul>li span.icon-delete{
+    top:0;
+    position: absolute;
+    display: none;
+    width:1em;
+    height:2em;
+    cursor: pointer;
+    right:0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+ul.files-list-ul>li span:hover:before{
+    color: #4975F4;
+}
+div.empty-folder>div.tip{
+    text-align: center;
+    margin-bottom: 1em;
+}
+div.empty-folder{
+    display: none;
+    height:4em;
+    width:8em;
+    position: absolute;
+    margin:auto auto;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    font-size: 14px;
+}
+div.empty-folder.empty{
+    display: block;
+}
+div.button-wrapper>button{
+    border:1px solid #4A76F4;
+    background-color: #4975F4;
+    border-radius: 4px;
+    width:8em;
+    height:2em;
+    color: #FFF;
+}
+div.button-wrapper>button:hover{
+    background-color: #4975CA;
+}
+
+div.contextMenu-right{
+    height:0;
+    overflow:hidden;
+    width:150px;
+    position: fixed;
+    background-color: #FFFFFF;
+    z-index: 9999;
+    outline: none;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition: opacity 0.3s;
+    -ms-transition: opacity 0.3s;
+    -o-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+}
+div.contextMenu-right:focus{
+    opacity: 1;
+    height:auto;
+    overflow:visible;
+    box-shadow: 0 0 10px 4px rgba(0,0,0,0.1);
+}
+div.contextMenu-right span{
+    display: block;
+    padding:0.5em 1.5em;
+    background-color: #FFFFFF;
+    font-size: 12px;
+}
+#rename-input-2{
+    position: fixed;
+    display: none;
+    width:10em;
+    height:1.5em;
+    z-index: 999;
+}
+textarea{
+    width:100%;
+    height:100%;
+    resize: none;
+    margin:0;
+    padding:0 0.2em;
+    display: none;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 99;
+}
+textarea.show{
+    display: block;
+}
+div.right{
+    vertical-align: top;
+    position: relative;
+}
+div.back{
+    width:10em;
+    height:4em;
+    margin:auto auto;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    position:absolute;
+    z-index: 0;
+}
+div.back>span:before{
+    font-size: 8em;
+    margin-left: 0.25em;
+}
