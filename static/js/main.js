@@ -56,7 +56,7 @@ function itemOnClick(event){//文件夹说对应的元素的点击事件
 }
 function treeContextMenu(event){//弹出菜单的拦截事件
     if (document.all)
-        window.event.returnValue = false;
+        window.event.returnValue = false; //for ie
     else
         event.preventDefault();
     var menu = q("div.contextMenu");
@@ -67,13 +67,12 @@ function treeContextMenu(event){//弹出菜单的拦截事件
 }
 function treeContextMenuRight(event){//弹出菜单的拦截事件
     if (document.all)
-        window.event.returnValue = false;
+        window.event.returnValue = false; //for ie
     else
         event.preventDefault();
     var menu = q("div.contextMenu-right");
     var i = 0;
     while((rightEle2 = event.path[i++]).nodeName!= "LI"){}
-    //var li_ = q(".left2>li[data-date='"+li.dataset.date+"']");
     menu.style.top = event.clientY + "px";
     menu.style.left = event.clientX + "px";
     menu.focus();
