@@ -320,7 +320,6 @@ function initEventListener(){//初始化各种事件
             upperLi = li;
             if (getOffset(rightEle).top === getOffset(positionEle).top) {
                 //同一元素
-                //setTimeout(function(){upperLi.querySelector("span").click()},100);
                 upperLi.querySelector("span").click();
                 //上一级
             }
@@ -348,8 +347,9 @@ function initEventListener(){//初始化各种事件
 window.onload = function(){
     var root = initRoot();
     q("div.left1").appendChild(root);
-    //两个示例文件夹的初始化命令
+    //示例文件夹的初始化命令
     root.querySelector("ul").appendChild(newNode("foobar",[]));
     initEventListener();
+    positionEle.click();
     positionEle.parentNode.querySelector("button").click();
 };

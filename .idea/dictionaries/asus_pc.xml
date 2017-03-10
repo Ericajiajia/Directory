@@ -2,6 +2,7 @@
   <dictionary name="asus-pc">
     <words>
       <w>contextmenu</w>
+      <w>textarea</w>
     </words>
   </dictionary>
 </component>
