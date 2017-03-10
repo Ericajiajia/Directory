@@ -194,7 +194,7 @@ div.controllers div.wrapper>ul{
     height:0;
     overflow: hidden;
     left:0;
-    z-index: 99999;
+    z-index: 9999;
     background-color: #FFFFFF;
     width:100px;
     opacity: 0;
@@ -349,7 +349,6 @@ div.contextMenu-right{
     opacity: 0;
     -webkit-transition: opacity 0.3s;
     -moz-transition: opacity 0.3s;
-    -ms-transition: opacity 0.3s;
     -o-transition: opacity 0.3s;
     transition: opacity 0.3s;
 }
@@ -385,6 +384,8 @@ textarea{
 }
 textarea.show{
     display: block;
+    font-size: 2em;
+    font-family: FontAwesome, serif;
 }
 div.right{
     vertical-align: top;
